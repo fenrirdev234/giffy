@@ -10,7 +10,10 @@ const TrendingSearches = () => {
     }, [])
 
     return (
-        <Category name={"Tendencias"} options={trends} />
+        <div>
+            <Category name={"Tendencias"} options={trends} />
+        </div>
+
     );
 }
 

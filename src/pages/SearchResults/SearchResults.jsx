@@ -5,7 +5,9 @@ import useGifs from '../../hooks/useGifs'
 
 const SearchResults = ({ params }) => {
   const { keyword } = params
-  const { loading, gifs } = useGifs({ keyword })
+  const { loading, gifs, setPage, loadingNextPage } = useGifs({ keyword })
+  const handleNextPages = () => setPage(prevPage => prevPage + 1)
+
   return (
     <>
       {loading ? <h4>cargando</h4> :
@@ -16,6 +18,8 @@ const SearchResults = ({ params }) => {
           <ListOfGifs gifs={gifs} />
         </>
       }
+      <br />
+      <button onClick={handleNextPages} >Get next page</button>
     </>
   )
 
